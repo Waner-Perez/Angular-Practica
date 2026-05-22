@@ -1,0 +1,87 @@
+<h1>DragonBall Page</h1>
+<hr>
+
+<section class="row">
+    <div class="col-12 col-sm-6">
+        <!-- <h3>Agregar:</h3> -->
+        <h3>Agregar: {{name()}}</h3>
+        <!-- <input type="text" class="form-control" placeholder="Nombre" /> -->
+        <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Nombre" 
+            [value]="name()"
+            (change)="name.set(txtName.value)"
+            (input)="name.set(txtName.value)"
+            #txtName
+            />
+        <!-- 
+            [value] es para asignar un valor a un input, 
+            pero no es reactivo, para eso se puede usar el (input) 
+            que es un evento que se dispara cuando el usuario escribe en el input 
+
+            (change) se dispara cuando el usuario cambia el valor del input y pierde el foco,
+                mientras que (input) se dispara cada vez que el usuario escribe en el input, sin necesidad de perder el foco.
+
+            #txtName es una referencia local que se puede usar para acceder al valor del input 
+            
+            La diferencia entre (input) y (change) es que (input) se dispara cada vez que el 
+                usuario escribe en el input, mientras que (change) se dispara cuando el usuario 
+                cambia el valor del input y pierde el foco.
+         -->
+
+        <!-- <h3>{{ power() }}</h3> -->
+        <input 
+            type="number" 
+            class="form-control mt-2" 
+            placeholder="Poder"
+            [value]="power()"
+            (change)="power.set(txtPower.valueAsNumber)"
+            (input)="power.set(+txtPower.value)"
+            #txtPower
+            />
+            <!-- (input)="power.set(txtPower.valueAsNumber)" -->
+
+        <button 
+            (click)="addCharater()"
+            class="mt-2 btn btn-primary"
+        >
+            Agregar
+        </button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <h3>Listado de fuertes</h3>
+        <!-- <ol>
+            @for (character of characters(); track character.id) {
+                <li>{{character.name}}</li>
+                <li>
+                    <span>{{ character.name }}</span>
+                    <strong class="text-danger"> ({{ character.power }}) </strong>
+                </li>
+            }
+        </ol> -->
+
+        <ul> 
+            <!-- En caso para poner los contadores, se puede usar el let idx = $index -->
+            @for (character of characters(); track character.id; let idx = $index) {
+                @if(character.power > 100) {
+                    <li>
+                        <span>{{ idx + 1 }} - {{ character.name }}</span>
+                        <!-- <strong class="text-danger"> ({{ character.power }}) </strong> -->
+                        <!-- <strong [ngClass]="powerClasses()"> [ngClass] es para asignar varias clases dependiendo de la condición -->
+                        <strong
+                            [class.text-danger]="character.power >= 9000"
+                            [class.text-primary]="character.power < 9000"
+                        > 
+                        <!-- [class] es para asignar una clase -->
+                            ({{ character.power }}) 
+                        </strong>
+                    </li>
+                } @else {
+                    <li><strong>Aqui no vale la pena ver nada</strong></li>
+                }
+            }
+        </ul>
+    </div>
+</section>

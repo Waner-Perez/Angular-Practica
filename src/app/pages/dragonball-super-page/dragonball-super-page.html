@@ -1,0 +1,20 @@
+<p>dragonball-super-page works!</p>
+<hr>
+
+<section class="row">
+    <div class="col-12 col-sm-6">
+        <!-- <dragonball-character-add
+            (newCharacterSong)="$event" 
+        /> -->
+        <dragonball-character-add
+            (newCharacter)="addCharater($event)" 
+        />
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <dragonball-character-list
+            listName="Listado de personajes" 
+            [characters]="characters()"
+         />
+    </div>
+</section>

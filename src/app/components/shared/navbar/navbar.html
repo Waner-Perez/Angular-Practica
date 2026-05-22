@@ -1,0 +1,17 @@
+<nav>
+    <a 
+        routerLink="/" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Contador
+    </a>
+    <!-- el routerLinkActive sirve para marcar el enlace activo. -->
+    <!-- marcar el enlace activo, y el routerLinkActiveOptions con exact: true hace que solo se active cuando la ruta sea exactamente igual a la del enlace. Si no se pone, cualquier ruta que comience con '/' activará el enlace. -->
+    <a [routerLink]="['/hero']" [routerLinkActive]="'active'">Hero</a> <!-- Esto es lo mismo que lo de arriba, pero con un array. Es útil para rutas con parámetros. -->
+    <a 
+        routerLink="/dragonball"
+        routerLinkActive="active" 
+        >Dragon Ball
+    </a>
+    <a routerLink="/dragonbal-super" routerLinkActive="active">Dragon Ball Super</a>
+</nav>
