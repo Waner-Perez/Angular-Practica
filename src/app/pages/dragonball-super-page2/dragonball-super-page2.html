@@ -1,0 +1,24 @@
+<p>dragonball-super-page works!</p>
+<hr>
+
+<section class="row">
+    <div class="col-12 col-sm-6">
+        <!-- <dragonball-character-add
+            (newCharacter)="addCharater($event)" 
+        /> -->
+        <dragonball-character-add
+            (newCharacter)="dragonBallService.addCharater($event)" 
+        />
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <!-- <dragonball-character-list
+            listName="Listado de personajes" 
+            [characters]="characters()"
+         /> -->
+         <dragonball-character-list
+            listName="Listado de personajes" 
+            [characters]="dragonBallService.characters()"
+         />
+    </div>
+</section>

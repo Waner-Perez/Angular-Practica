@@ -4,6 +4,7 @@ import { CounterTest } from './pages/counter-test/counter-test';
 import { Hero } from './pages/hero/hero';
 import { DragonballPage } from './pages/dragonball-page/dragonball-page';
 import { DragonballSuperPage } from './pages/dragonball-super-page/dragonball-super-page';
+import { DragonballSuperPage2 } from './pages/dragonball-super-page2/dragonball-super-page2';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     {
         path: 'dragonbal-super',
         component: DragonballSuperPage
+    },
+    {
+        path: 'dragonbal-super-ConService',
+        component: DragonballSuperPage2
     },
     {
         path: '**',
