@@ -1,0 +1,39 @@
+<div id="nav" class="w-full px-6">
+    @for (item of menuOptions; track item.route) {
+        <!-- el [routerLink] en este caso es un atributo de Angular que se utiliza para 
+            definir la ruta a la que se navegará cuando se haga clic en el enlace. 
+            El valor de [routerLink] se establece en item.route, lo que significa que cada 
+            elemento del menú tendrá su propia ruta asociada. Cuando el usuario haga clic 
+            en el enlace, Angular Router se encargará de navegar a la ruta especificada en 
+            "item.route". 
+
+            Y hace llamado a un componente hijo que se encarga de mostrar el contenido correspondiente a esa ruta.
+        -->
+        <a 
+            [routerLink]="item.route"
+            routerLinkActive="bg-blue-800"
+            class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/5 transition ease-linear duration-150"
+        >
+            <div>
+                <!-- <i class="{{ 'fa-solid fa-house' }}"></i> -->
+                <!-- <i class="{{ item.icon }}"></i> -->
+                 <i [class]="item.icon"></i>
+                 <!--  esta es la forma correcta de bindear la clase del icono, 
+                   utilizando [class] en lugar de class. Esto permite que Angular 
+                   interprete el valor de item.icon como una expresión y lo asigne 
+                   dinámicamente a la clase del elemento <i>. -->
+            </div>
+            <div class="flex flex-col">
+                <!-- <span class="text-lg font-bold leading-5 text-white">Dashboard</span> -->
+                <span class="text-lg font-bold leading-5 text-white">
+                    {{ item.label }}
+                </span>
+                <!-- <span class="text-sm text-white/50 hidden md:block">Data Overview</span> -->
+                <span class="text-sm text-white/50 hidden md:block">
+                    {{ item.subLabel }}
+                </span>
+            </div>
+        </a>
+    }
+
+</div>
