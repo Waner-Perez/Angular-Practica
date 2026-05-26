@@ -3,6 +3,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".", // Base directory for resolving non-relative module names
+    "paths": {
+      "@environments/*": ["src/environments/*"], // Alias for environments folder 
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
