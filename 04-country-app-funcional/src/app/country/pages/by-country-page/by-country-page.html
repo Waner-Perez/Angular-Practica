@@ -1,0 +1,22 @@
+<app-country-search-input 
+    placeholder="Buscar por pais"
+    /* (value)="search($event)" */
+    (value)="search.set($event)"
+/>
+
+<app-country-list 
+    [countries]="countryResource.value() ?? []" 
+    [errorMessage]="countryResource.error()"
+    [isEmpty]="countryResource.value()?.length === 0"
+    [isLoading]="countryResource.isLoading()"
+/>
+
+<!-- 
+    @if(countryResource.error()) {
+        <h3>{{ countryResource.error() }}</h3>
+    }
+
+    @if(countryResource.hasValue()){
+        <app-country-list [countries]="countryResource.value()" />
+    } 
+-->

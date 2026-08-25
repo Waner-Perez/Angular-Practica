@@ -1,0 +1,136 @@
+<!-- <section class="mx-10">
+    <h1 class="text-3xl">{{countryDetail().name}} </h1>
+    <h2 class="text-xl font-thin">Población: {{countryDetail().population | number}} </h2>
+    <h2 class="text-xl font-thin">subregion: {{countryDetail().subregion}} </h2>
+    <h2 class="text-xl font-thin">Idiomas:</h2>
+    <ul>
+        @for (lang of countryDetail().languages; track lang.nativeName) {
+            <li>{{ lang.name }} — {{ lang.nativeName }}</li>
+        }
+    </ul>
+</section> -->
+
+<section class="mx-5">
+    <div class="aura aura-glow w-full max-w-8xl">
+        <div class="card bg-base-100 w-full">
+            <div class="card-body">
+                <div class="divider divider-accent mb-10">
+                    <h1 class="text-3xl">{{countryDetail().name}} </h1>
+                </div>
+
+                <figure class="diff h-175" tabindex="0">
+                    <div class="diff-item-1 bg-linear-to-t from-violet-500 to-fuchsia-500" role="img" tabindex="0">
+                        <img class="h-175 w-auto object-contain" [src]="countryDetail().flagSvg"
+                            [alt]="countryDetail().name" />
+                    </div>
+                    <div class="diff-item-2" role="img">
+                        <!-- <div class="bg-base-200 grid place-content-center text-9xl font-black">DAISY</div> -->
+
+                        <div>
+                            <img [src]="countryDetail().flagSvg" [alt]="countryDetail().name"
+                                class="absolute inset-0 w-full h-full object-cover opacity-20" />
+
+                            <div class="grid grid-cols-3 grid-flow-row grid-rows-4 gap-5 p-10  overflow-y-auto">
+                                @for(item of infoItems(); track item.label){
+                                    <app-country-info-items 
+                                        [label]="item.label"
+                                        [value]="item.value ?? ''"
+                                        [format]="item.format"
+                                        [unit]="item.unit"
+                                        [list]="item.list"
+                                        [class]="
+                                            item.label === 'Fronteras' ? 'col-span-2 order-7' : 
+                                            item.label === 'Lenguajes' ? 'col-span-3 order-8' : 
+                                            ''
+                                        "
+                                    />
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="diff-resizer"></div>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-5">
+        <h3 class="card-title text-sm">Población</h3>
+        <p>{{ countryDetail().population | number }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-5">
+        <h3 class="card-title text-sm">Población</h3>
+        <p>{{ countryDetail().population | number }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow-md rounded-3xl">
+    <div class="card-body p-3">
+        <h3 class="card-title text-sm">Región</h3>
+        <p>{{ countryDetail().region }}</p>
+    </div>
+</div> -->
