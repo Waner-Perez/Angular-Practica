@@ -45,14 +45,14 @@ export class CountryInformationPage {
       format: true, 
       unit: 'hab/km²' 
     },
+    {
+      label: 'Fronteras',
+      list: this.countryDetail().borders,
+    },
     { 
       label: 'Lenguajes', 
       list: this.countryDetail().languages.map(l => `${l.name} (${l.nativeName})`), 
     },
-    {
-      label: 'Fronteras',
-      list: this.countryDetail().borders,
-    }
   ]);
 
   /*

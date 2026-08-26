@@ -1,14 +1,14 @@
 <div class="card bg-base-100 shadow-md rounded-3xl h-full min-h-10">
-    <div class="card-body p-10">
+    <div class="card-body p-4 lg:p-10">
         <h3 class="card-title text-sm mb-2">{{ label() }}</h3>
         @if(list()) {
             <div class="flex flex-wrap gap-2">
                 @for (item of list(); track item) {
-                    <span class="badge badge-secondary">{{ item }}</span>
+                    <span class="badge badge-secondary text-[11px] sm:text-sm">{{ item }}</span>
                 }
             </div>
         } @else {
-            <p>{{ (value() ?? '') | unidad:(unit() ?? ''):(format() ?? false) }}</p>
+            <p class="text-[11px] sm:text-sm">{{ (value() ?? '') | unidad:(unit() ?? ''):(format() ?? false) }}</p>
         }
     </div>
 </div>
